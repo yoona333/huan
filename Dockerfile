@@ -19,5 +19,5 @@ RUN npm install
 # 暴露端口
 EXPOSE 3000
 
-CMD ["node", "src/index.js"]
-
+# 启动服务
+CMD ["npm", "start"]
