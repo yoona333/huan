@@ -4,17 +4,20 @@ FROM node:18
 # 设置工作目录
 WORKDIR /app
 
-# 复制 package.json 和 package-lock.json（如果有）到工作目录
-COPY package*.json ./
+# 安装 git
+RUN apt-get update && apt-get install -y git
+
+# 克隆指定的 Git 仓库
+RUN git clone https://github.com/yoona333/huan.git /app
+
+# 进入工作目录
+WORKDIR /app
 
 # 安装依赖
 RUN npm install
 
-# 复制项目代码到工作目录
-COPY . .
-
 # 暴露端口
 EXPOSE 3000
 
-# 启动应用
-CMD ["npm", "start"]
+CMD ["node", "src/index.js"]
+
