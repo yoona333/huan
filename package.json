@@ -4,11 +4,11 @@
     "description": "A sample project for Docker",
     "main": "src/index.js",
     "scripts": {
-      "start": "node src/index.js"
+        "start": "node src/index.js"
     },
-    "dependencies": {},
-    "devDependencies": {},
+    "dependencies": {
+        "express": "^4.19.2"
+    },
     "author": "",
     "license": "ISC"
-  }
-  
+}
