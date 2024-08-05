@@ -1,23 +1,6 @@
-# 使用 Node.js 官方镜像作为基础镜像
-FROM node:18
-
-# 设置工作目录
+FROM node:14
 WORKDIR /app
-
-# 安装 git
-RUN apt-get update && apt-get install -y git
-
-# 克隆指定的 Git 仓库
-RUN git clone https://github.com/yoona333/huan.git /app
-
-# 进入工作目录
-WORKDIR /app
-
-# 安装依赖
+COPY package*.json ./
 RUN npm install
-
-# 暴露端口
-EXPOSE 3000
-
-# 启动服务
-CMD ["npm", "start"]
+COPY . .
+CMD ["node", "src/index.js"]
